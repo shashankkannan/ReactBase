@@ -3,13 +3,11 @@ from tkinter import Tk
 from tkinter.filedialog import askdirectory
 
 
-
 def create_file(path, filename, content):
     if not os.path.exists(path):
         os.makedirs(path)
     with open(os.path.join(path, filename), 'w') as file:
         file.write(content)
-
 
 
 def setup_react_firebase_app():
@@ -21,14 +19,12 @@ def setup_react_firebase_app():
         print("No folder selected. Exiting...")
         return
 
-
     app_name = input("Enter the name of your React app: ").strip()
     if not app_name:
         print("App name cannot be empty. Please run again")
         return
 
     app_path = os.path.join(folder_path, app_name)
-
 
     os.system(f'npx create-react-app {app_path}')
     os.chdir(app_path)
